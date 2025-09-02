@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { Container, Typography } from '@mui/material';
+// ...removed MUI imports...
 import Timeline from './../components/Timeline';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -14,11 +14,13 @@ export default function TimelinePage() {
     <AuthProvider>
       <ArtifactProvider>
         <Navbar />
-        <Container style={{ padding: '100px 0' }}>
-          <Typography variant="h4">Timeline Page</Typography>
-          <Timeline />
-        </Container>
-        <Footer />
+        <div className="bg-blue-50 min-h-screen">
+          <div className="max-w-4xl mx-auto py-20 px-4">
+            <h1 className="text-3xl font-bold mb-8 text-black">Timeline Page</h1>
+            <Timeline />
+          </div>
+          <Footer />
+        </div>
       </ArtifactProvider>
     </AuthProvider>
   );

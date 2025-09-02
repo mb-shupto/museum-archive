@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const login = (email: string, password: string): boolean => {
-    const validUser = { id: '1', name: 'Admin', email: 'admin@liberationmuseum.org', role: 'admin' };
+  const validUser = { id: '1', name: 'Admin', email: 'admin@liberationmuseum.org', role: 'admin' } as const;
     if (email === 'admin@liberationmuseum.org' && password === 'password') {
       setUser(validUser);
       localStorage.setItem('user', JSON.stringify(validUser));
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const register = (name: string, email: string, password: string): boolean => {
     if (!user && !localStorage.getItem('user')) {
-      const newUser = { id: Date.now().toString(), name, email, role: 'user' };
+  const newUser = { id: Date.now().toString(), name, email, role: 'user' } as const;
       setUser(newUser);
       localStorage.setItem('user', JSON.stringify(newUser));
       return true;

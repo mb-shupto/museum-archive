@@ -28,7 +28,7 @@ const SearchSection = () => {
             onChange={(e) => setSearchValue(e.target.value)}
             className="flex-grow px-4 py-2 border border-gray-300 rounded"
           />
-          <select value={category} onChange={(e) => setCategory(e.target.value)} className="min-w-[200px] px-4 py-2 border border-gray-300 rounded">
+          <select aria-label='Select category' value={category} onChange={(e) => setCategory(e.target.value)} className="min-w-[200px] px-4 py-2 border border-gray-300 rounded">
             <option value="All Categories">All Categories</option>
             <option value="Photographs">Photographs</option>
             <option value="Documents">Documents</option>

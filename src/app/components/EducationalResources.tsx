@@ -6,13 +6,18 @@ const EducationalResources = () => {
   const resources = [
     { title: 'Research Papers', icon: 'book', description: 'Academic research about the liberation war.', action: 'Access Research' },
     { title: 'Teaching Materials', icon: 'graduation-cap', description: 'Lesson plans and worksheets for educators.', action: 'Download Materials' },
-    { title: 'Oral Histories', icon: 'video', description: 'Interviews with freedom fighters.', action: 'Watch Videos' }
+    { title: 'Oral Histories', icon: 'video', description: 'Interviews with freedom fighters.', action: 'Watch Videos' },
+    { title: 'Documentaries', icon: 'film', description: 'Curated documentaries and films about the liberation war.', action: 'Watch Documentaries' },
+    { title: 'Photo Archives', icon: 'image', description: 'Historic photographs and visual archives.', action: 'View Photos' },
+    { title: 'Maps & Timelines', icon: 'map', description: 'Interactive maps and timelines of key events.', action: 'Explore Maps' },
+    { title: 'Student Projects', icon: 'user-graduate', description: 'Featured student research and creative projects.', action: 'See Projects' },
+    { title: 'Lesson Videos', icon: 'chalkboard-teacher', description: 'Video lessons and lectures by experts.', action: 'Watch Lessons' }
   ];
 
   return (
     <section className="py-16 bg-blue-50">
-      <h2 className="text-center text-2xl font-bold mb-8">Educational Resources</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <h2 className="text-center text-2xl font-bold mb-8 text-black">Educational Resources</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-black">
         {resources.map((resource, index) => (
           <div key={index} className="flex flex-col items-center">
             <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mb-4">

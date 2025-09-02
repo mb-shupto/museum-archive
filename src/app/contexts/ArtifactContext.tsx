@@ -81,7 +81,7 @@ export const ArtifactProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const addArtifact = (newArtifact: Artifact) => {
-    const updated = [...artifacts, { id: artifacts.length, ...newArtifact }];
+  const updated = [...artifacts, { ...newArtifact, id: artifacts.length }];
     setArtifacts(updated);
     localStorage.setItem('artifacts', JSON.stringify(updated));
   };

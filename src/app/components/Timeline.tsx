@@ -12,7 +12,7 @@ const Timeline = () => {
 
   return (
     <section className="py-16 bg-white">
-      <h2 className="text-center text-2xl font-bold mb-8">Liberation War Timeline</h2>
+      <h2 className="text-center text-2xl font-bold mb-8 text-black">Liberation War Timeline</h2>
       <div className="max-w-2xl mx-auto">
         {events.map((event, index) => (
           <div key={index} className="relative pl-8 mb-8">

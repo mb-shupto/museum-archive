@@ -15,13 +15,9 @@ export default function Home() {
   return (
     <AuthProvider>
       <ArtifactProvider>
-        <Navbar />
-        <HeroSection />
-        <SearchSection />
-        <ArchiveGrid />
-        <Timeline />
-        <EducationalResources />
-        <Footer />
+  <Navbar />
+  <HeroSection />
+  <Footer />
       </ArtifactProvider>
     </AuthProvider>
   );
