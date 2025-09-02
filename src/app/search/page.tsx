@@ -1,25 +1,37 @@
-'use client';
 
-import React, { useContext, useEffect, useState } from 'react';
+
+
+'use client';
+import React, { useContext, useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { ArtifactContext } from './../contexts/ArtifactContext';
+import { ArtifactContext, ArtifactProvider } from './../contexts/ArtifactContext';
 import ArchiveCard from './../components/ArchiveCard';
 import { Artifact } from './../types/artifact';
-import { ArtifactProvider } from './../contexts/ArtifactContext';
 import { AuthProvider } from './../contexts/AuthContext';
 
+
 function SearchResults() {
+  return (
+    <AuthProvider>
+      <ArtifactProvider>
+        <SearchResultsContent />
+      </ArtifactProvider>
+    </AuthProvider>
+  );
+}
+
+function SearchResultsContent() {
   const context = useContext(ArtifactContext);
-  const searchArtifacts = context?.searchArtifacts ?? (() => []);
   const searchParams = useSearchParams();
   const [results, setResults] = useState<Artifact[]>([]);
 
   useEffect(() => {
+    const searchArtifacts = context?.searchArtifacts ?? (() => []);
     const type = searchParams.get('type') || 'Object Head';
     const value = searchParams.get('value') || '';
     const category = searchParams.get('category') || '';
     setResults(searchArtifacts(type, value, category || undefined));
-  }, [searchParams, searchArtifacts]);
+  }, [searchParams, context]);
 
   return (
     <div className="py-16 px-4">
@@ -38,10 +50,8 @@ function SearchResults() {
 
 export default function SearchResultsPage() {
   return (
-    <AuthProvider>
-      <ArtifactProvider>
-        <SearchResults />
-      </ArtifactProvider>
-    </AuthProvider>
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchResults />
+    </Suspense>
   );
 }
